@@ -33,8 +33,8 @@ class StudentsController extends Controller
 
 
         $request->validate([
-            'name' => 'required',
-            'umur' => 'required|numeric',
+            'name' => 'required|min:3',
+            'umur' => 'required|numeric|min:18',
             'alamat' => 'required'
         ]);
 

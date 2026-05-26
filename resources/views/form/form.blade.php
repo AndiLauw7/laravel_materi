@@ -10,23 +10,32 @@
     <h1>Form Students</h1>
     <form action="/students/store" method="POST">
         @csrf
-    <input type="text" name="name" placeholder="Nama">
-    <br>
-    <input type="text" name="umur" placeholder="Umur">
-    <br>
-    <input type="text" name="alamat" placeholder="Alamat">
-        <button type="submit">
-            Kirim
-        </button>
-        @if ($errors->any())
-    <div style="color: red;">
+         @if ($errors->any())
+    {{-- <div style="color: red;">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-    </div>
-@endif
+    </div> --}}
+    @endif
+    <input type="text" name="name" value="{{ old('name') }}" placeholder="Nama">
+    @error('name')
+        <div style="color: red;">{{ $message }}</div>
+    @enderror
+    <br>
+    <input type="text" name="umur" value="{{ old('umur') }}" placeholder="Umur">
+        @error('umur')
+        <div style="color: red;">{{ $message }}</div>
+    @enderror
+    <br>
+    <input type="text" name="alamat" value="{{ old('alamat') }}" placeholder="Alamat">
+        @error('alamat')
+        <div style="color: red;">{{ $message }}</div>
+    @enderror
+        <button type="submit">
+            Kirim
+        </button>
     </form>
 </body>
 </html>
