@@ -9,14 +9,18 @@ class StudentsController extends Controller
 {
     public function index()
     {
-        $Students = [
-            'Syah',
-            'Fahmi',
-            'Fadli',
-            'Faisal'
-        ];
-        return view('students', [
-            'students' => $Students
+        // $Students = [
+        //     'Syah',
+        //     'Fahmi',
+        //     'Fadli',
+        //     'Faisal'
+        // ];
+        // return view('students', [
+        //     'students' => $Students
+        // ]);
+        $students = Student::all();
+        return view('students.index', [
+            'students' => $students
         ]);
     }
     public function show($name)
@@ -49,9 +53,9 @@ class StudentsController extends Controller
         // $alamat = $request->input('alamat');
         // return "Hello " . $name . " umur " . $umur . " alamat " . $alamat;
         Student::create([
-            'name' => 'laptop gaming',
+            'name' => 'Andi',
             'umur' => 12,
-            'alamat' => 'jakarta'
+            'alamat' => 'Serang'
         ]);
         return "student berhasil ditambahkan";
     }
