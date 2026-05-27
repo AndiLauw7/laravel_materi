@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentsController extends Controller
@@ -32,20 +33,26 @@ class StudentsController extends Controller
     {
 
 
-        $request->validate([
-            'name' => 'required|min:3',
-            'umur' => 'required|numeric|min:18',
-            'alamat' => 'required'
-        ]);
+        //     $request->validate([
+        //         'name' => 'required|min:3',
+        //         'umur' => 'required|numeric|min:18',
+        //         'alamat' => 'required'
+        //     ]);
 
-        return "
-        Nama: {$request->name} <br>
-        Umur: {$request->umur} <br>
-        Alamat: {$request->alamat}
-    ";
+        //     return "
+        //     Nama: {$request->name} <br>
+        //     Umur: {$request->umur} <br>
+        //     Alamat: {$request->alamat}
+        // ";
         // $name = $request->input('name');
         // $umur = $request->input('umur');
         // $alamat = $request->input('alamat');
         // return "Hello " . $name . " umur " . $umur . " alamat " . $alamat;
+        Student::create([
+            'name' => 'laptop gaming',
+            'umur' => 12,
+            'alamat' => 'jakarta'
+        ]);
+        return "student berhasil ditambahkan";
     }
 }

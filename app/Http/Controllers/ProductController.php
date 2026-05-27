@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -35,5 +36,14 @@ class ProductController extends Controller
     {
         $search = $request->input('search');
         return 'Hasil pencarian: ' . $search;
+    }
+    public function store()
+    {
+        Product::create([
+            'name' => 'Laptop Gaming',
+            'price' => 5000000,
+            'stock' => 10
+        ]);
+        return "product berhasil ditambahkan";
     }
 }

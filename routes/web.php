@@ -13,14 +13,16 @@ Route::get('/products', [ProductController::class, 'index']);
 // Route::get('/products/{id}', function ($id) {
 //     return "Product " . $id;
 // });
+Route::get('/products/create', [ProductController::class, 'store']);
 Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::get('/search', [ProductController::class, 'search']);
 
 Route::get('/users/profile', [UserController::class, 'profile']);
 Route::get('/students', [StudentsController::class, 'index']);
-Route::get('/students/create', function () {
-    return view('/form/form');
-});
+// Route::get('/students/create', function () {
+//     return view('/form/form');
+// });
+Route::get('/students/create', [StudentsController::class, 'store']);
 Route::post('/students/store', [StudentsController::class, 'store']);
 Route::get('/students/search', [StudentsController::class, 'search']);
 
