@@ -18,6 +18,7 @@ Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::get('/search', [ProductController::class, 'search']);
 
 Route::get('/users/profile', [UserController::class, 'profile']);
+Route::get('/users-posts', [UserController::class, 'userPosts']);
 Route::get('/students', [StudentsController::class, 'index'])->name('students.index');
 Route::get('/students/form', [StudentsController::class, 'createForm'])->name('students.create');
 Route::post('/students/store', [StudentsController::class, 'storeForm']);
